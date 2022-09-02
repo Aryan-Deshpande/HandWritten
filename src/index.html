@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Img</title>
+</head>
+<body>
+    
+    <div id="app"></div>
+    <div id="result">
+        <h1>Insert your image here !</h1>
+            <input type="file" id="file" name="file" accept="image/*"></input>
+            <button id="button" onclick="">Upload</button>
+    </div>
+<script src="https://unpkg.com/axios/dist/axios.min.js">
+
+    const joe  = function () {
+            // get file
+            const file = document.getElementById("file").files[0];
+        try{
+            // send  request to endpoint with file
+
+            var data = await axios({
+            method: 'post',
+            url: '/predictimage',
+            data: {
+                'image': file
+            }
+            });
+
+            console.log(data);
+            var elem = document.getElementById("result");
+            var text = document.createTextNode(data);
+            elem.appendChild(text);
+
+        }catch(err){
+            console.log(err);
+            }
+        };
+</script>
+</body>
+</html>
