@@ -6,9 +6,12 @@ from backend.behind import inference
 @app.route('/predictimage',methods=['GET','POST'])
 def predictimage():
     if request.method == 'POST':
-        image = request.data
-        value, Success = inference(image)
-        if value == -1 and Success == False:
-            return 'err' 
-        return value
+        print(request.form)
+        
+        image = request.files['img']
+        print(image)
+        print('hey there2')
+        value = inference(image)
+        print(value)
+        return render_template('je.html')
     return render_template('index.html')
