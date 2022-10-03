@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Img</title>
+</head>
+<body>
+    <div id="app"></div>
+    <div id="result">
+        <form id="form" enctype="multipart/form-data" method="POST">
+            <h1>Insert your image here !</h1>
+            <input type="file" id="file" name="img" accept="image/*"></input>
+            <button id="button" type="submit" onclick="func()">Upload</button>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+        const form = document.getElementById('form');
+        function func(){
+            var formData = new FormData();
+            formData.append("image", form.files[0]);
+            axios.post('upload_file', formData, {
+                headers: {
+                'Content-Type': 'multipart/form-data'
+                }
+            })}
+    </script>
+
+</body>
+</html>
