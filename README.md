@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```sh
 flask run --host 0.0.0.0 --port 5000
 ```
-![image](hhttps://cdn.discordapp.com/attachments/835750351621718030/1032880918777573406/unknown.png)
+![image](https://cdn.discordapp.com/attachments/835750351621718030/1032880918777573406/unknown.png)
 
 ### Running the application on a Docker container
 
