@@ -31,7 +31,7 @@ docker build -t handwritten . \
 ```
 
 ### Running the application for production purpose
-- Make sure that a python server for windows / unix. Here you can install gunicorn, which is a python server for UNIX.
+- Make sure that a python server for windows / unix is used instead of flasks developement server. Here you can install gunicorn, which is a python server for UNIX.
 ```sh
 pip install gunicorn \
 && gunicorn --bind 0.0.0.0:5000 server:app --timeout 600 --workers 2
