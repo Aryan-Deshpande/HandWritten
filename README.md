@@ -37,6 +37,30 @@ pip install gunicorn \
 && gunicorn --bind 0.0.0.0:5000 server:app --timeout 600 --workers 2
 ```
 
+### Where can you deploy this app
+- **Containerize** this application and deploy them on a **Container Instance**.
+- **Containerize** an application and use the image in a **Kubernetes cluster**.
+- Use Cloud Run in GCP / AWS / AZURE to deploy the application.
+
+### Build and Deploy you're docker image for your application over a cloud service
+
+[GCP](https://cloud.google.com/build/docs/build-push-docker-image)
+[AZURE](https://learn.microsoft.com/en-us/azure/devops/pipelines/ecosystems/containers/acr-template?view=azure-devops)
+[AWS](https://aws.amazon.com/ecr/)
+
+- Build a container image
+```sh
+docker build -t app .
+```
+
+- Now push the container image into a container registry
+```sh
+docker tag app cloud-registry-url \
+&& docker push cloud-registry-url
+```
+
+- Now from here your a free bird, you can either use a cloud run solution / serveless solution, or a kubernetes service to deploy your application.
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
